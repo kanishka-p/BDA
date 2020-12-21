@@ -1,4 +1,0 @@
-1101	pam	Manager	45000	10
-1102	jim	Developer	40000	10
-1103	Tyson	Analyst	35000	8
-1104	Max	Operations	25000	8
