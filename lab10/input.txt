@@ -1,0 +1,17 @@
+Query i] CREATE table IF NOT EXISTS emp1999(emp_id INT, emp_name STRING,designation STRING ,salary DOUBLE);
+
+Query ii] LOAD DATA LOCAL INPATH '/home/hduser/sample.txt' OVERWRITE INTO TABLE emp1999;
+SELECT * FROM emp1999;
+Query iii] create view emp_view as select emp_id,emp_name,salary from emp1999 where salary>30000;
+select * from emp_view;
+Query iv] ALTER TABLE EMP_TABLE ADD COLUMNS(DEPT_ID int); 
+LOAD DATA LOCAL INPATH '/home/hduser/sample.txt' OVERWRITE INTO TABLE EMP_TABLE;
+SELECT * FROM EMP_TABLE ORDER BY DEPT_ID;
+ 
+Query v] SELECT DEPT_ID, COUNT(*) FROM EMP_TABLE WHERE SALARY>'30000' GROUP BY DEPT_ID;
+Query vi] create table if not exists dep_table(dep_id int,dep_name string,emp_id int);
+ 
+Query vii] select e.emp_id,e.emp_name,e.designation,e.salary,d.dep_id,d.dep_name from emp1999 e join dep_table d ON (e.emp_id=d.emp_id);
+ 
+
+ 
