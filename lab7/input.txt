@@ -1,0 +1,12 @@
+Query i]  create keyspace library with replication={ class:’SimpleStrategy’,’replication_factor’:1};
+Query ii] create table library_info(stud_id int,counter_value counter, stud_name text, book_name text, book_id int, date_of_issue timestamp, PRIMARY KEY((stud_id,stud_name,book_name,book_id,date_of_issue )));
+Query iii] 
+update library_info set counter_value=counter_value+1 where stud_id=112 and stud_name='ABC' and book_name='BDA' and book_id=1 and date_of_issue='2019-08-20';
+update library_info set counter_value=counter_value+1 where stud_id=114 and stud_name='XYZ' and book_name='DSR' and book_id=2 and date_of_issue='2019-08-26';  
+Query iv] select * from library_info;
+Query v] 
+update library_info set counter_value=counter_value+1 where stud_id=112 and stud_name='ABC' and book_name='BDA' and book_id=1 and date_of_issue='2019-08-20';
+select * from library_info where stud_id=112 ALLOW FILTERING;
+Query vi] copy library_info(stud_id,counter_value,stud_name,book_name,book_id,date_of_issue) to ‘d:\library_info1.csv;
+Query vii] copy library_info(stud_id,counter_value,stud_name,book_name,book_id,date_of_issue) from ‘d:\library_info1.csv’;
+Query vii] copy library_info(stud_id,counter_value,stud_name,book_name,book_id,date_of_issue) from ‘d:\library_info1.csv’;
